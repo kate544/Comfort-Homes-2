@@ -1,0 +1,166 @@
+.newsletter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 2rem;
+  background: #fff;
+}
+
+.newsletter-card {
+  background: black; 
+  color: white;
+  text-align: center;
+  padding: 3rem 2rem;
+  border-radius: 16px;
+  max-width: 700px;
+  width: 100%;
+}
+
+.newsletter-card h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.newsletter-card p {
+  font-size: 0.95rem;
+  margin-bottom: 2rem;
+  color: #ddd;
+}
+
+.newsletter-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.newsletter-form input {
+  padding: 0.8rem 1rem;
+  border: none;
+  border-radius: 6px;
+  flex: 1;
+  min-width: 250px;
+  background: #1d1d1d;
+  color: white;
+}
+
+.newsletter-form input::placeholder {
+  color: #bbb;
+}
+
+.newsletter-form button {
+  background: black;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.newsletter-form button:hover {
+  background: #f4b400;
+  color: black;
+}
+
+.status-message {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  color: #f4b400;
+}
+
+.newsletter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 2rem;
+  background: #fff;
+}
+
+.newsletter-card {
+  background: black; 
+  color: white;
+  text-align: center;
+  padding: 3rem 2rem;
+  border-radius: 16px;
+  max-width: 700px;
+  width: 100%;
+}
+
+body.dark-mode .newsletter {
+  background: #000; 
+}
+
+body.dark-mode .newsletter-card {
+  background: #2e2e2e; 
+  color: white;
+}
+
+body.dark-mode .newsletter-form input {
+  background: #444;
+  color: white;
+}
+
+/* ===================== */
+/* Newsletter Responsive */
+/* ===================== */
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .newsletter {
+    padding: 2rem;
+    text-align: center;
+  }
+
+  .newsletter h2 {
+    font-size: 1.8rem;
+  }
+
+  .newsletter p {
+    font-size: 1rem;
+    max-width: 80%;
+    margin: 0 auto 1.5rem;
+  }
+
+  .newsletter-form {
+    justify-content: center;
+    gap: 1rem;
+  }
+}
+
+/* Mobile Phones */
+@media (max-width: 768px) {
+  .newsletter {
+    padding: 1.5rem;
+  }
+
+  .newsletter h2 {
+    font-size: 1.5rem;
+  }
+
+  .newsletter p {
+    font-size: 0.95rem;
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.8rem;
+  }
+
+  .newsletter-form input {
+    width: 100%;
+    padding: 0.7rem;
+    font-size: 0.95rem;
+  }
+
+  .newsletter-form button {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 1rem;
+  }
+}
