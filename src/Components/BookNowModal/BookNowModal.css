@@ -1,0 +1,197 @@
+body.modal-open {
+  overflow: hidden;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;  
+  padding-top: 0.5rem;        
+  z-index: 1000;
+  overflow-y: auto;         
+}
+
+.modal-content {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 500px;
+  width: 90%;
+  max-height: none;        
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+
+.booking-form label {
+  display: block;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.booking-form input,
+.booking-form textarea {
+  width: 100%;
+  padding: 0.6rem;
+  margin-top: 0.4rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+}
+
+.confirm-btn {
+  background: #f4b400;
+  color: white;
+  padding: 0.7rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.confirm-btn:hover {
+  background: #dca000; 
+}
+
+.close-btn {
+  background: #eee;
+  color: #333;
+  padding: 0.7rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.close-btn:hover {
+  background: #ccc;
+color: #f4b400;
+}
+
+.success-message {
+  text-align: center;
+}
+
+.success-message h3 {
+  color: #28a745; 
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+/* 🌙 Dark mode styles */
+body.dark-mode .modal-content {
+  background: #1e1e1e;
+  color: #f4f4f4;
+}
+
+body.dark-mode .booking-form input,
+body.dark-mode .booking-form textarea {
+  background: #2c2c2c;
+  border: 1px solid #555;
+  color: #fff;
+}
+
+body.dark-mode .confirm-btn {
+  background: #d4af37; 
+  color: #1e1e1e;
+}
+
+body.dark-mode .confirm-btn:hover {
+  background: #b9982f;
+}
+
+body.dark-mode .close-btn {
+  background: #333;
+  color: #fff;
+}
+
+body.dark-mode .close-btn:hover {
+  background: #444;
+  color: #d4af37;
+}
+
+body.dark-mode .night-rate,
+body.dark-mode .price {
+  color: #ffd700; 
+}
+
+body.dark-mode .success-message h3 {
+  color: #4caf50; 
+}
+
+/* Tablet screens */
+@media (max-width: 1024px) {
+  .modal-content {
+    width: 80%;
+    max-width: 600px;
+    padding: 1.5rem;
+  }
+
+  .modal-content h2 {
+    font-size: 1.5rem;
+  }
+
+  .modal-content input,
+  .modal-content select,
+  .modal-content textarea {
+    font-size: 1rem;
+    padding: 0.7rem;
+  }
+
+  .modal-content button {
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
+  }
+}
+
+/* Mobile screens */
+@media (max-width: 768px) {
+  .modal-content {
+    width: 95%; 
+    max-width: none;
+    height: auto;
+    padding: 1rem;
+  }
+
+  .modal-content h2 {
+    font-size: 1.3rem;
+    text-align: center;
+  }
+
+  .modal-content form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .modal-content input,
+  .modal-content select,
+  .modal-content textarea {
+    width: 100%;
+    font-size: 0.95rem;
+    padding: 0.6rem;
+  }
+
+  .modal-content button {
+    width: 100%;
+    font-size: 1rem;
+    padding: 0.9rem;
+  }
+}
+
+
+
