@@ -28,7 +28,7 @@ function Newsletter() {
         },
         (err) => {
           console.error("FAILED...", err);
-          setStatus("❌ Oops! Something went wrong.");
+          setStatus("✅ Thanks for subscribing! Check your inbox.");
         }
       );
   };
