@@ -107,35 +107,11 @@
   display: flex;
   gap: 1.5rem;
 }
-.footer-bottom ul:hover{
+
+.footer-bottom ul:hover {
   color: #f4b400;
   text-decoration: underline;
   cursor: pointer;
-}
-/* Default (Light Mode) */
-.footer {
-  background: #dce9f5;
-  padding: 3rem 2rem 1rem;
-  color: #333;
-  font-size: 0.95rem;
-}
-
-.footer-subscribe {
-  border: 1px solid #bbb;
-}
-
-.footer-subscribe input {
-  background: #fff;
-  color: #333;
-}
-
-.footer-subscribe input::placeholder {
-  color: #666;
-}
-
-.footer-subscribe button {
-  background: black;
-  color: white;
 }
 
 /* ---- DARK MODE ---- */
@@ -172,7 +148,7 @@ body.dark-mode .footer-subscribe button {
 }
 
 body.dark-mode .footer-subscribe button:hover {
-  background :#f4b400;
+  background: #f4b400;
   color: #fff;
 }
 
@@ -182,21 +158,22 @@ body.dark-mode .footer-bottom {
 
 /* Tablets */
 @media (max-width: 1024px) {
-  .footer {
+  .footer-top {
     flex-direction: column;
+    align-items: center;
     text-align: center;
     gap: 2rem;
-    padding: 2rem;
   }
 
-  .footer .footer-links {
-    flex-wrap: wrap;
+  .footer-links {
     justify-content: center;
   }
 
-  .footer .footer-social {
-    justify-content: center;
-    margin-top: 1rem;
+  .footer-bottom {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
   }
 }
 
@@ -206,19 +183,23 @@ body.dark-mode .footer-bottom {
     padding: 1.5rem;
   }
 
-  .footer .footer-links {
+  .footer-links {
     flex-direction: column;
     align-items: center;
     gap: 1rem;
   }
 
-  .footer .footer-social {
-    flex-direction: column;
+  .socials {
+    justify-content: center;
     gap: 0.8rem;
   }
 
   .footer p {
     font-size: 0.9rem;
     line-height: 1.4;
+  }
+
+  .footer-subscribe {
+    max-width: 100%;
   }
 }

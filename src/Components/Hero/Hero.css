@@ -1,13 +1,15 @@
 .hero {
   height: 100vh;
-  width: 214vh;
+  width: 100%; /* ✅ fixed from 214vh */
   background-size: cover;
   background-position: center;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden; 
+  overflow: hidden;
+
+  padding-top: 80px; /* ✅ space so nav doesn’t overlap */
 }
 
 .overlay {
@@ -86,12 +88,10 @@
     #ffffff
   );
   background-size: 800% 800%;
-
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
   -webkit-text-fill-color: transparent;
-
   animation: glow-shimmer 10s ease infinite;
 }
 
@@ -107,50 +107,12 @@
   }
 }
 
-@media (max-width: 768px) {
-  .hero-content h1 {
-    font-size: 2rem;
-  }
-
-  .hero-content h4 {
-    font-size: 1.3rem;
-  }
-
-  .hero-content p {
-    font-size: 1rem;
-  }
-
-  .search-box {
-    flex-direction: column;
-    gap: 0.8rem;
-  }
-
-  .search-box input,
-  .search-box button {
-    width: 100%;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero-content h1 {
-    font-size: 1.6rem;
-  }
-
-  .hero-content h4 {
-    font-size: 1.1rem;
-  }
-
-  .hero-content p {
-    font-size: 0.9rem;
-  }
-}
-
 /* Tablet screens */
 @media (max-width: 1024px) {
   .hero {
     height: 80vh;
     width: 100%;
-    padding: 0 4%;
+    padding: 80px 4% 0; /* ✅ keep space for navbar */
   }
 
   .hero-content h1 {
@@ -176,10 +138,10 @@
 /* Mobile screens */
 @media (max-width: 768px) {
   .hero {
-    height: auto; 
+    height: auto;
     min-height: 70vh;
     width: 100%;
-    padding: 1rem;
+    padding: 80px 1rem 1rem; /* ✅ push content below navbar */
     text-align: center;
   }
 
@@ -217,5 +179,19 @@
   .search-box input,
   .search-box button {
     width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 1.6rem;
+  }
+
+  .hero-content h4 {
+    font-size: 1.1rem;
+  }
+
+  .hero-content p {
+    font-size: 0.9rem;
   }
 }
