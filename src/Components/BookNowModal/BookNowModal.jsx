@@ -177,7 +177,7 @@ function BookNowModal({ hotel, onClose }) {
             Confirm & Book
         </button>
         <button type="submit" className="payment-btn">
-            Payment
+            Payment Methods
         </button>
     </div>
     
