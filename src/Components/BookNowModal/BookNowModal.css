@@ -53,7 +53,7 @@ body.modal-open {
 
 .top-actions-row {
   display: flex;
-  flex-wrap: wrap;           /* 🔑 allow wrapping */
+  flex-wrap: wrap;           
   gap: 12px;
   width: 100%;
 }
@@ -108,18 +108,18 @@ color: #f4b400;
 .bottom-action-row {
     display: flex;
     justify-content: center; 
-    width: 100%; /* CHANGED from 70% to 100% to fill the container */
+    width: 100%; 
 }
 
-/* Ensure the close button fills its row */
+
 .bottom-action-row .close-btn {
-    width: 100%; /* Stretches the Close button to fill the width */
-    max-width: 300px; /* OPTIONAL: Limits the max width if the modal is very wide */
+    width: 100%; 
+    max-width: 300px; 
 }
 
 .confirm-btn,
 .payment-btn {
-  flex: 1 1 140px;           /* 🔑 minimum width */
+  flex: 1 1 140px;           
   min-width: 140px;
 }
 
