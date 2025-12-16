@@ -19,7 +19,7 @@ function BookNowModal({ hotel, onClose }) {
   const parseDate = (dateStr) => {
     if (!dateStr) return null;
     const [year, month, day] = dateStr.split("-").map(Number);
-    return new Date(year, month - 1, day); // avoid UTC offset issues
+    return new Date(year, month - 1, day); 
   };
 
   // ✅ calculate nights correctly
@@ -171,14 +171,22 @@ function BookNowModal({ hotel, onClose }) {
                 Total: <b>KES {calcPrice().toLocaleString()}</b>
               </p>
 
-              <div className="actions">
-                <button type="submit" className="confirm-btn">
-                  Confirm & Book
-                </button>
-                <button type="button" onClick={onClose} className="close-btn">
-                  Close
-                </button>
-              </div>
+<div className="actions">
+    <div className="top-actions-row"> 
+        <button type="submit" className="confirm-btn">
+            Confirm & Book
+        </button>
+        <button type="submit" className="payment-btn">
+            Payment
+        </button>
+    </div>
+    
+    <div className="bottom-action-row"> 
+        <button type="button" onClick={onClose} className="close-btn">
+            Close
+        </button>
+    </div>
+</div>
             </form>
           </>
         ) : (
