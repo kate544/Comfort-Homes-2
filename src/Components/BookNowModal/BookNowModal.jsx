@@ -14,7 +14,17 @@ function BookNowModal({ hotel, onClose }) {
 
   const [success, setSuccess] = useState(false);
   const [finalTotal, setFinalTotal] = useState(0);
+  const [showPaymentMethods, setShowPaymentMethods] = useState(false);
 
+const handleOpenPaymentMethods = () => {
+    setShowPaymentMethods(true);
+};
+
+const handleClosePaymentMethods = () => {
+    setShowPaymentMethods(false);
+};
+
+  
   // ✅ safely parse YYYY-MM-DD into a local Date object
   const parseDate = (dateStr) => {
     if (!dateStr) return null;
@@ -141,7 +151,7 @@ function BookNowModal({ hotel, onClose }) {
                   min="1"
                   value={form.guests}
                   onChange={handleChange}
-                />
+                  />
               </label>
 
               <label>
@@ -171,22 +181,25 @@ function BookNowModal({ hotel, onClose }) {
                 Total: <b>KES {calcPrice().toLocaleString()}</b>
               </p>
 
-<div className="actions">
-    <div className="top-actions-row"> 
-        <button type="submit" className="confirm-btn">
-            Confirm & Book
-        </button>
-        <button type="submit" className="payment-btn">
-            Payment Methods
-        </button>
-    </div>
-    
-    <div className="bottom-action-row"> 
-        <button type="button" onClick={onClose} className="close-btn">
-            Close
-        </button>
-    </div>
-</div>
+              <div className="actions">
+                <div className="top-actions-row"> 
+                  <button type="submit" className="confirm-btn">
+                      Confirm & Book
+                  </button>
+                  <button 
+                      type="button" // ✅ FIXED: Changed to type="button" to prevent form submission
+                      onClick={handleOpenPaymentMethods} 
+                      className="payment-btn"
+                  >
+                      Payment Methods
+                  </button>
+                </div>
+                <div className="bottom-action-row"> 
+                  <button type="button" onClick={onClose} className="close-btn">
+                      Close
+                  </button>
+                </div>
+              </div>
             </form>
           </>
         ) : (
@@ -203,6 +216,38 @@ function BookNowModal({ hotel, onClose }) {
             <button onClick={onClose}>Close</button>
           </div>
         )}
+
+        {showPaymentMethods && (
+          <div className="payment-methods-overlay">
+            <div className="payment-methods-content">
+              <h3>Choose a Payment Method</h3>
+              
+              <div className="payment-choices">
+                <button 
+                  onClick={() => { console.log("M-Pesa selected"); handleClosePaymentMethods(); }} 
+                  className="mpesa-btn"
+                >
+                  Pay via M-Pesa
+                </button>
+                
+                <button 
+                  onClick={() => { console.log("Stripe/Card selected"); handleClosePaymentMethods(); }} 
+                  className="stripe-btn"
+                >
+                  Pay via Stripe or Card
+                </button>
+              </div>
+              
+              <button 
+                onClick={handleClosePaymentMethods} 
+                className="payment-close-btn"
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        )}
+        
       </div>
     </div>
   );
