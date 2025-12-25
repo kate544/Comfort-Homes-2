@@ -25,14 +25,13 @@ const handleClosePaymentMethods = () => {
 };
 
   
-  // ✅ safely parse YYYY-MM-DD into a local Date object
   const parseDate = (dateStr) => {
     if (!dateStr) return null;
     const [year, month, day] = dateStr.split("-").map(Number);
     return new Date(year, month - 1, day); 
   };
 
-  // ✅ calculate nights correctly
+  // calculate nights 
   const calcNights = () => {
     const inDate = parseDate(form.checkIn);
     const outDate = parseDate(form.checkOut);
@@ -42,7 +41,7 @@ const handleClosePaymentMethods = () => {
     return diff > 0 ? diff : 0;
   };
 
-  // ✅ calculate total price
+  // calculate total price
   const calcPrice = () => {
     const nights = calcNights();
     const pricePerNight = Number(hotel.price) || 0;
@@ -50,7 +49,6 @@ const handleClosePaymentMethods = () => {
     return nights * pricePerNight * form.guests;
   };
 
-  // ✅ fix guests field so it stays a number
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm({
@@ -163,7 +161,7 @@ const handleClosePaymentMethods = () => {
                 />
               </label>
 
-              {/* ✅ Price breakdown */}
+              {/* Price breakdown */}
               {calcNights() > 0 && (
                 <div className="price-breakdown">
                   <p>
