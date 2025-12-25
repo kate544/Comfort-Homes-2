@@ -122,7 +122,6 @@ body.modal-open {
 }
 
 .payment-methods-overlay {
-    /* Makes it cover the entire screen */
     position: fixed;
     top: 0;
     left: 0;
@@ -147,7 +146,7 @@ body.modal-open {
 }
 
 .payment-methods-content h3 {
-    margin-bottom: 1.5rem; /* Adjusted from 4.5rem to look better */
+    margin-bottom: 1.5rem; 
     color: #333;
 }
 
@@ -158,7 +157,6 @@ body.modal-open {
     margin-bottom: 20px;
 }
 
-/* Base style for all buttons in the pop-up */
 .payment-choices button, .payment-close-btn {
     width: 100%;
     padding: 1rem;
@@ -170,7 +168,7 @@ body.modal-open {
 }
 /* M-Pesa Button Style */
 .mpesa-btn {
-    background: #4CAF50; /* Green */
+    background: #4CAF50; 
     color: white;
 }
 .mpesa-btn:hover {
@@ -179,7 +177,7 @@ body.modal-open {
 
 /* Stripe/Card Button Style */
 .stripe-btn {
-    background: #6772e5; /* Stripe Purple/Blue */
+    background: #6772e5; 
     color: white;
 }
 .stripe-btn:hover {
