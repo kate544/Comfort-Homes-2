@@ -187,7 +187,7 @@ const handleClosePaymentMethods = () => {
                       Confirm & Book
                   </button>
                   <button 
-                      type="button" // ✅ FIXED: Changed to type="button" to prevent form submission
+                      type="button" 
                       onClick={handleOpenPaymentMethods} 
                       className="payment-btn"
                   >
