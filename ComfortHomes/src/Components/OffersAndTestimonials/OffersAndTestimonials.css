@@ -1,0 +1,226 @@
+.offers-testimonials {
+  padding: 4rem 2rem;
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+.offers-section {
+  margin-bottom: 4rem;
+margin-right: 0.8rem ;
+}
+
+.offers-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.offers-header h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--text-color);
+  padding-left: 28px;
+}
+
+.offers-subtext {
+padding-left: 20px;
+color: var(--subtext-color);
+ margin: 0.8rem 0 2rem;
+}
+
+.view-all {
+  text-decoration: none;
+  color: var(--accent-color);
+  font-size: 16px;
+  font-weight: 700;
+  transition: color 0.3s ease;
+}
+
+.view-all:hover {
+  color: #ffa500;;
+}
+
+.offers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  padding-left: 10px;
+}
+
+.offer-card {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  min-height: 220px;
+  background-size: cover;
+  background-position: center;
+  color: white;
+  display: flex;
+  align-items: flex-end;
+  padding: 1rem;
+
+  /* Light mode border */
+  border: 2px solid black;
+  transition: all 0.3s ease-in-out;
+}
+
+.offer-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.offer-card .badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: var(--accent-color);
+  color: var(--bg-color);
+  padding: 0.3rem 0.7rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  z-index: 2;
+}
+
+.offer-content {
+  position: relative;
+  z-index: 2;
+}
+
+.offer-content h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.offer-content a {
+  margin-top: 0.5rem;
+  display: inline-block;
+  color: var(--accent-color);
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+/* --- Testimonials Section --- */
+.testimonials-section {
+  text-align: center;
+  background: var(--card-bg);
+  padding: 3rem 2rem;
+  border-radius: 12px;
+}
+
+.testimonials-section h2 {
+  font-family: playfair;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+}
+
+.testimonials-subtext {
+  color: var(--subtext-color);
+  margin-bottom: 2rem;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.testimonial-card {
+  background: var(--bg-color);
+  padding: 1rem;
+  border-radius: 12px;
+  text-align: left;
+  color: var(--text-color);
+
+  /* Light mode border */
+  border: 2px solid black;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.testimonial-card img {
+  border-radius: 50%;
+  margin-bottom: 0.8rem;
+}
+
+.testimonial-card h4 {
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+.testimonial-card .location {
+  color: var(--subtext-color);
+  font-size: 0.9rem;
+}
+
+.stars {
+  color: #ffa500;
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+}
+
+.review {
+  color: var(--subtext-color);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* --- HOVER EFFECTS --- */
+.offer-card:hover,
+.testimonial-card:hover {
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+}
+
+/* --- DARK MODE --- */
+body.dark-mode .offer-card,
+body.dark-mode .testimonial-card {
+  border: 2px solid white;
+  background: #222;
+  color: white;
+}
+
+body.dark-mode .offer-card:hover,
+body.dark-mode .testimonial-card:hover {
+  box-shadow: 0 0 15px rgba(255, 165, 0, 0.8);
+  border-color: #ffa500;
+}
+
+body.dark-mode .offers-header h2,
+body.dark-mode .offers-subtext,
+body.dark-mode .view-all,
+body.dark-mode .testimonials-section h2,
+body.dark-mode .testimonials-subtext,
+body.dark-mode .testimonial-card .location,
+body.dark-mode .review {
+  color: white;
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .offers-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .offers-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .offers-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .offers-header {
+    text-align: center;
+  }
+}

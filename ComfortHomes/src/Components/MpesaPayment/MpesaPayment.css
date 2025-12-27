@@ -1,0 +1,285 @@
+.payment-container {
+    width: 100%;
+    max-width: 90%; 
+    margin: 0 auto;
+    padding: 0px;
+    height: auto;
+    overflow: visible;
+}
+
+.payment-container h2 {
+    background: linear-gradient(
+        to right, 
+        #00d2ff 20%, 
+        #00d2ff 40%, 
+        #00d2ff 60%, 
+        #36322d 80%
+    );
+    background-size: 200% auto;
+    
+    background-clip: text;
+    -webkit-background-clip: text;
+    
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    
+   display: block;
+    width: 100%;
+    font-size: 28px; 
+    line-height: 1.2;
+    text-align: center;
+    word-wrap: normal;
+    overflow-wrap: normal;
+    animation: shine 4s linear infinite;
+}
+
+@keyframes shine {
+    to {
+        background-position: 200% center;
+    }
+}
+
+.payment-container h2::after {
+    content: '';
+    display: block;
+    margin: 10px auto 0;
+    width: 50px;
+    height: 4px;
+    background: #00d2ff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 210, 255, 0.6);
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #000;
+    font-weight: bold;
+}
+
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #dfe6e9; 
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    font-size: 16px;
+    color: #2d3436;
+    transition: all 0.3s ease; 
+    outline: none; 
+}
+
+
+.form-group input:focus {
+    border-color: #00d2ff; 
+    background-color: #ffffff; 
+    box-shadow: 0 0 8px rgba(0, 210, 255, 0.4), 
+                0 0 0 3px rgba(0, 210, 255, 0.1);
+    transform: translateY(-1px); 
+}
+
+.form-group:focus-within label {
+    color: #00d2ff;
+    transition: color 0.3s ease;
+}
+.pay-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #00a859; 
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.pay-button:hover:not(:disabled) {
+    background-color: #008000;
+}
+
+.pay-button:disabled {
+    background-color: #a0a0a0;
+    cursor: not-allowed;
+}
+
+.message-status {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: #e6ffe6;
+    color: #006400;
+    text-align: center;
+    border: 1px solid #cceccc;
+}
+
+.receipt-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex; align-items: center; justify-content: center;
+    z-index: 1000;
+}
+
+.receipt-modal {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    max-width: 400px; width: 90%;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.receipt-details {
+    text-align: left;
+    margin: 20px 0;
+    line-height: 1.6;
+}
+
+.download-btn {
+    background: #28a745; color: white; border: none;
+    padding: 10px 20px; border-radius: 5px; cursor: pointer;
+    margin-right: 10px;
+}
+
+.close-btn {
+    background: #6c757d; color: white; border: none;
+    padding: 10px 20px; border-radius: 5px; cursor: pointer;
+}
+
+.receipt-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; 
+}
+
+/* The Receipt Card */
+.receipt-modal {
+    background: #ffffff;
+    color: #333;
+    width: 90%;
+    max-width: 400px;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    animation: fadeIn 0.3s ease-out; 
+}
+
+/* Receipt Details Text */
+.receipt-details {
+    text-align: left;
+    background: #f8f9fa;
+    color: #333;
+    padding: 15px;
+    border-radius: 8px;
+    margin: 15px 0;
+    font-size: 14px;
+    border: 1px dashed #ccc; 
+}
+
+.receipt-details p {
+    margin: 8px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.receipt-details strong {
+    color: #333;
+}
+
+/* Action Buttons */
+.receipt-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.download-btn {
+    flex: 2;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.close-btn {
+    flex: 1;
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.download-btn:hover { background-color: #218838; }
+.close-btn:hover { background-color: #5a6268; }
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@media print {
+    .receipt-actions, .pay-button, .payment-form {
+        display: none !important;
+    }
+    .receipt-overlay {
+        background: white;
+    }
+}
+
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.pay-button, .generate-receipt-btn {
+    width: 100%;
+    padding: 14px;
+    background-color: #2d3436; 
+    color: white;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-transform: capitalize;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px; 
+}
+
+.pay-button:hover:not(:disabled), .generate-receipt-btn:hover {
+    background-color: #00d2ff; 
+    color: white;
+    box-shadow: 0 0 10px #00d2ff, 0 0 25px rgba(0, 210, 255, 0.5); 
+    transform: scale(1.02);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.pay-button:disabled {
+    background-color: #636e72;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.pay-button:active, .generate-receipt-btn:active {
+    transform: scale(0.98);
+}

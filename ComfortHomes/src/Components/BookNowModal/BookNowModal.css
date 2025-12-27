@@ -1,0 +1,334 @@
+body.modal-open {
+  overflow: hidden;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 0.5rem;
+  z-index: 1000;
+  overflow-y: auto;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 500px;
+  width: 90%;
+  max-height: none;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+
+.booking-form label {
+  display: block;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.booking-form input,
+.booking-form textarea {
+  width: 100%;
+  padding: 0.6rem;
+  margin-top: 0.4rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 1.5rem;
+}
+
+.top-actions-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  width: 100%;
+}
+
+
+.confirm-btn {
+  background: #f4b400;
+  color: white;
+  padding: 0.7rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.confirm-btn:hover {
+  background: #f5b70d;
+}
+
+.payment-btn {
+  background: #56d765;
+  color: white;
+  padding: 0.7rem 1.9rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.payment-btn:hover {
+  background: #e1dfd7;
+  color: #1e1e1e;
+}
+
+.close-btn {
+  background: #eee;
+  color: #333;
+  padding: 0.7rem 1.9rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.close-btn:hover {
+  background: #ccc;
+  color: #f4b400;
+}
+
+.bottom-action-row {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+
+.bottom-action-row .close-btn {
+  width: 100%;
+  max-width: 300px;
+}
+
+.confirm-btn,
+.payment-btn {
+  flex: 1 1 140px;
+  min-width: 140px;
+}
+
+.payment-methods-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; 
+    padding: 20px; 
+    z-index: 1010; 
+    overflow-y: auto; 
+}
+
+.payment-methods-content {
+    background: #fff;
+    padding: 2.5rem 1rem; 
+    border-radius: 12px;
+    width: 95%;
+    max-width: 400px; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    margin: 2rem auto; 
+    height: auto;
+    position: relative;
+    box-sizing: border-box;
+    min-width: 320px; 
+}
+
+.payment-methods-content h3 {
+    width: 100%;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+.payment-choices {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.payment-choices button, .payment-close-btn {
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+/* M-Pesa Button Style */
+.mpesa-btn {
+    background: #4CAF50; 
+    color: white;
+}
+.mpesa-btn:hover {
+    background: #fca91b;
+}
+
+/* Stripe/Card Button Style */
+.stripe-btn {
+    background: #6772e5; 
+    color: white;
+}
+.stripe-btn:hover {
+    background: #fca91b;
+}
+/* Cancel Button Style */
+.payment-close-btn {
+    background: #f0f0f0;
+    color: #666;
+    margin-top: 10px;
+}
+.payment-close-btn:hover {
+    background: #e0e0e0;
+}
+
+.success-message {
+  text-align: center;
+}
+
+.success-message h3 {
+  color: #28a745;
+}
+
+.mpesa-integration-wrapper .payment-close-btn {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.mpesa-integration-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+/* 🌙 Dark mode styles */
+body.dark-mode .modal-content {
+  background: #1e1e1e;
+  color: #f4f4f4;
+}
+
+body.dark-mode .booking-form input,
+body.dark-mode .booking-form textarea {
+  background: #2c2c2c;
+  border: 1px solid #555;
+  color: #fff;
+}
+
+body.dark-mode .confirm-btn {
+  background: #d4af37;
+  color: #1e1e1e;
+}
+
+body.dark-mode .confirm-btn:hover {
+  background: #b9982f;
+}
+
+body.dark-mode .close-btn {
+  background: #333;
+  color: #fff;
+}
+
+body.dark-mode .close-btn:hover {
+  background: #444;
+  color: #d4af37;
+}
+
+body.dark-mode .night-rate,
+body.dark-mode .price {
+  color: #ffd700;
+}
+
+body.dark-mode .success-message h3 {
+  color: #4caf50;
+}
+
+/* Tablet screens */
+@media (max-width: 1024px) {
+  .modal-content {
+    width: 80%;
+    max-width: 600px;
+    padding: 1.5rem;
+  }
+
+  .modal-content h2 {
+    font-size: 1.5rem;
+  }
+
+  .modal-content input,
+  .modal-content select,
+  .modal-content textarea {
+    font-size: 1rem;
+    padding: 0.7rem;
+  }
+
+  .modal-content button {
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
+  }
+}
+
+/* Mobile screens */
+@media (max-width: 768px) {
+  .modal-content {
+    width: 95%;
+    max-width: none;
+    height: auto;
+    padding: 1rem;
+  }
+
+  .modal-content h2 {
+    font-size: 1.3rem;
+    text-align: center;
+  }
+
+  .modal-content form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .modal-content input,
+  .modal-content select,
+  .modal-content textarea {
+    width: 100%;
+    font-size: 0.95rem;
+    padding: 0.6rem;
+  }
+
+  .modal-content button {
+    width: 100%;
+    font-size: 1rem;
+    padding: 0.9rem;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .top-actions-row {
+    flex-direction: column;
+  }
+}
