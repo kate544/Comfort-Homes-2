@@ -25,9 +25,10 @@
     
    display: block;
     width: 100%;
-    font-size: 28px; 
+    font-size: 20px; 
     line-height: 1.2;
     text-align: center;
+    word-break: keep-all;
     word-wrap: normal;
     overflow-wrap: normal;
     animation: shine 4s linear infinite;
