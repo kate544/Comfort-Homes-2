@@ -44,6 +44,25 @@ body.modal-open {
   font-size: 1rem;
 }
 
+.success-close-btn {
+    background-color: #ffcc00; 
+    color: #1a1a1a;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background 0.3s ease;
+    width: 100%; 
+    max-width: 200px;
+}
+
+.success-close-btn:hover {
+    background-color: #e6b800;
+}
+
 .actions {
   display: flex;
   flex-direction: column;

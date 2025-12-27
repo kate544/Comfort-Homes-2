@@ -13,28 +13,26 @@ function BookNowModal({ hotel, onClose }) {
     guests: 1,
   });
 
- const [showMpesa, setShowMpesa] = useState(false);
+  const [showMpesa, setShowMpesa] = useState(false);
   const [success, setSuccess] = useState(false);
   const [finalTotal, setFinalTotal] = useState(0);
   const [showPaymentMethods, setShowPaymentMethods] = useState(false);
 
-const handleOpenPaymentMethods = () => {
+  const handleOpenPaymentMethods = () => {
     setShowPaymentMethods(true);
-};
+  };
 
-const handleClosePaymentMethods = () => {
+  const handleClosePaymentMethods = () => {
     setShowPaymentMethods(false);
-    setShowMpesa(false); 
-};
-  
-  // safely parse YYYY-MM-DD into a local Date object
+    setShowMpesa(false);
+  };
+
   const parseDate = (dateStr) => {
     if (!dateStr) return null;
     const [year, month, day] = dateStr.split("-").map(Number);
-    return new Date(year, month - 1, day); 
+    return new Date(year, month - 1, day);
   };
 
-  // calculate nights correctly
   const calcNights = () => {
     const inDate = parseDate(form.checkIn);
     const outDate = parseDate(form.checkOut);
@@ -44,10 +42,11 @@ const handleClosePaymentMethods = () => {
     return diff > 0 ? diff : 0;
   };
 
-  // calculate total price
   const calcPrice = () => {
     const nights = calcNights();
-    const pricePerNight = Number(hotel.price) || 0;
+    const rawPrice = hotel.price ? String(hotel.price).replace(/[^0-9.]/g, "") : "0";
+    const pricePerNight = Number(rawPrice) || 0;
+
     if (nights === 0) return 0;
     return nights * pricePerNight * form.guests;
   };
@@ -62,20 +61,17 @@ const handleClosePaymentMethods = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    if (
-      !form.name ||
-      !form.email ||
-      !form.phone ||
-      !form.checkIn ||
-      !form.checkOut
-    ) {
+    if (!form.name || !form.email || !form.phone || !form.checkIn || !form.checkOut) {
       alert("Please fill all required fields.");
       return;
     }
-
-    setFinalTotal(calcPrice()); 
+    setFinalTotal(calcPrice());
     setSuccess(true);
+  };
+
+  const getCleanPrice = () => {
+    const raw = hotel.price ? String(hotel.price).replace(/[^0-9.]/g, "") : "0";
+    return (Number(raw) || 0).toLocaleString();
   };
 
   return (
@@ -83,96 +79,43 @@ const handleClosePaymentMethods = () => {
       <div className="modal-content">
         {!success ? (
           <>
+          
             <h2>Book {hotel.name}</h2>
-            <p className="night-rate">
-              Rate: KES {Number(hotel.price).toLocaleString()} per night
-            </p>
 
             <form onSubmit={handleSubmit} className="booking-form">
-              <label>
-                Full Name*
-                <input
-                  type="text"
-                  name="name"
-                  value={form.name}
-                  onChange={handleChange}
-                  required
-                />
+              <label>Full Name*
+                <input type="text" name="name" value={form.name} onChange={handleChange} required />
               </label>
 
-              <label>
-                Email Address*
-                <input
-                  type="email"
-                  name="email"
-                  value={form.email}
-                  onChange={handleChange}
-                  required
-                />
+              <label>Email Address*
+                <input type="email" name="email" value={form.email} onChange={handleChange} required />
               </label>
 
-              <label>
-                Phone Number*
-                <input
-                  type="tel"
-                  name="phone"
-                  value={form.phone}
-                  onChange={handleChange}
-                  required
-                />
+              <label>Phone Number*
+                <input type="tel" name="phone" value={form.phone} onChange={handleChange} required />
               </label>
 
-              <label>
-                Check-in Date*
-                <input
-                  type="date"
-                  name="checkIn"
-                  value={form.checkIn}
-                  onChange={handleChange}
-                  required
-                />
+              <label>Check-in Date*
+                <input type="date" name="checkIn" value={form.checkIn} onChange={handleChange} required />
               </label>
 
-              <label>
-                Check-out Date*
-                <input
-                  type="date"
-                  name="checkOut"
-                  value={form.checkOut}
-                  onChange={handleChange}
-                  required
-                />
+              <label>Check-out Date*
+                <input type="date" name="checkOut" value={form.checkOut} onChange={handleChange} required />
               </label>
 
-              <label>
-                Guests
-                <input
-                  type="number"
-                  name="guests"
-                  min="1"
-                  value={form.guests}
-                  onChange={handleChange}
-                  />
+              <label>Guests
+                <input type="number" name="guests" min="1" value={form.guests} onChange={handleChange} />
               </label>
 
-              <label>
-                Special Requests (optional)
-                <textarea
-                  name="requests"
-                  value={form.requests}
-                  onChange={handleChange}
-                />
+              <label>Special Requests (optional)
+                <textarea name="requests" value={form.requests} onChange={handleChange} />
               </label>
 
-              {/* Price breakdown */}
               {calcNights() > 0 && (
                 <div className="price-breakdown">
+                  <p>Nights: <b>{calcNights()}</b></p>
                   <p>
-                    Nights: <b>{calcNights()}</b>
-                  </p>
-                  <p>
-                    {form.guests} guest(s) × {calcNights()} night(s) × KES{" "}
-                    {Number(hotel.price).toLocaleString()} =
+                    {form.guests} guest(s) × {calcNights()} night(s) × KES {getCleanPrice()} =
                     <b> KES {calcPrice().toLocaleString()}</b>
                   </p>
                 </div>
@@ -183,22 +126,14 @@ const handleClosePaymentMethods = () => {
               </p>
 
               <div className="actions">
-                <div className="top-actions-row"> 
-                  <button type="submit" className="confirm-btn">
-                      Confirm & Book
-                  </button>
-                  <button 
-                      type="button" 
-                      onClick={handleOpenPaymentMethods} 
-                      className="payment-btn"
-                  >
-                      Payment Methods
+                <div className="top-actions-row">
+                  <button type="submit" className="confirm-btn">Confirm & Book</button>
+                  <button type="button" onClick={handleOpenPaymentMethods} className="payment-btn">
+                    Payment Methods
                   </button>
                 </div>
-                <div className="bottom-action-row"> 
-                  <button type="button" onClick={onClose} className="close-btn">
-                      Close
-                  </button>
+                <div className="bottom-action-row">
+                  <button type="button" onClick={onClose} className="close-btn">Close</button>
                 </div>
               </div>
             </form>
@@ -207,49 +142,39 @@ const handleClosePaymentMethods = () => {
           <div className="success-message">
             <h3>🎉 Booking Successful!</h3>
             <p>
-              Thank you, {form.name}! Your booking at <b>{hotel.name}</b> is
-              confirmed.
+              Thank you, {form.name}! Your booking at <b>{hotel.name}</b> is confirmed.
               <br />
               Total Paid: <b>KES {finalTotal.toLocaleString()}</b>
               <br />
               We'll email you shortly.
             </p>
-            <button onClick={onClose}>Close</button>
+          <button onClick={onClose} className="success-close-btn">
+          Close
+        </button>
           </div>
         )}
 
-    {showPaymentMethods && (
-  <div className="payment-methods-overlay">
-    <div className="payment-methods-content">
-      {showMpesa ? (
-        <div className="mpesa-integration-wrapper">
-          <MpesaPayment 
-            amount={calcPrice()} 
-            phoneNumber={form.phone} 
-          />
-          <button onClick={handleClosePaymentMethods} className="payment-close-btn">
-            Close
-          </button>
-        </div>
-      ) : (
-        <>
-          <h3>Choose a Payment Method</h3>
-          <div className="payment-choices">
-            <button onClick={() => setShowMpesa(true)} className="mpesa-btn">
-              Pay via M-Pesa
-            </button>
-            <button onClick={handleClosePaymentMethods} className="stripe-btn">
-              Pay via Card
-            </button>
+        {showPaymentMethods && (
+          <div className="payment-methods-overlay">
+            <div className="payment-methods-content">
+              {showMpesa ? (
+                <div className="mpesa-integration-wrapper">
+                  <MpesaPayment amount={calcPrice()} phoneNumber={form.phone} />
+                  <button onClick={handleClosePaymentMethods} className="payment-close-btn">Close</button>
+                </div>
+              ) : (
+                <>
+                  <h3>Choose a Payment Method</h3>
+                  <div className="payment-choices">
+                    <button onClick={() => setShowMpesa(true)} className="mpesa-btn">Pay via M-Pesa</button>
+                    <button onClick={handleClosePaymentMethods} className="stripe-btn">Pay via Card</button>
+                  </div>
+                  <button onClick={handleClosePaymentMethods} className="payment-close-btn">Close</button>
+                </>
+              )}
+            </div>
           </div>
-          <button onClick={handleClosePaymentMethods} className="payment-close-btn">
-            Close
-          </button>
-        </>
-      )}
-    </div>
-  </div>
-)}
+        )}
       </div>
     </div>
   );
